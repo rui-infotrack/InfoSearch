@@ -74,7 +74,7 @@ module.exports = {
     },
     hot: true,
     proxy: {
-      // '/v1/*': 'http://localhost:24957',
+      '/api/*': 'http://localhost:3000'
       // '/images/*': 'http://localhost:24957',
       // '/fonts/*': 'http://localhost:24957'
     }
