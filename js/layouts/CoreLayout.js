@@ -7,8 +7,15 @@ export default class CoreLayout extends React.Component {
 
   render() {
     return (
-      <div className="ui main text container">
-        {this.props.children}
+      <div>
+        <div className="ui main text container">
+          {this.props.children}
+        </div>
+        <div className="ui inverted vertical footer segment">
+          <div className="ui container">
+            &copy;2015 InfoTrack Pty Ltd
+          </div>
+        </div>
       </div>
     );
   }

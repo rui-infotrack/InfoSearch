@@ -1,5 +1,9 @@
 @import 'colors';
 
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
 .ui {
   &.main.container {
     padding-top: 7em;
@@ -8,32 +12,39 @@
   &.inverted.menu {
     background-color: $primary-color;
   }
+}
 
-  .search.form {
-    margin-top: 35px;
+.search.form {
+  margin-top: 35px;
 
-    button[type=submit] {
-      margin: 0;
-      position: absolute;
-      right: 0;
-    }
+  button[type=submit] {
+    margin: 0;
+    position: absolute;
+    right: 0;
+  }
 
-    .ui.mini.images {
-      .image {
-        cursor: pointer;
-        margin: 0em 1rem .5rem;
-        opacity: .3;
-        width: 38px;
-        transition: opacity .35s ease;
+  .ui.mini.images {
+    .image {
+      cursor: pointer;
+      margin: 0em 1rem .5rem;
+      opacity: .3;
+      width: 38px;
+      transition: opacity .35s ease;
 
-        &:hover {
-          opacity: 1;
-        }
+      &:hover {
+        opacity: 1;
+      }
 
-        &.active {
-          opacity: 1;
-        }
+      &.active {
+        opacity: 1;
       }
     }
   }
+}
+
+.footer {
+  background: #1e1e1e !important;
+  bottom: 0;
+  position: fixed !important;
+  width: 100%;
 }
