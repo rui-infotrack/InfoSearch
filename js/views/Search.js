@@ -1,8 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import SearchBox from 'components/SearchBox';
+import SearchTypeChooser from 'components/SearchTypeChooser';
+import { changeSearchType } from 'actions/SearchActions';
+import classnames from 'classnames';
 
-export default class Home extends React.Component {
+class Search extends React.Component {
   render() {
+    const { search, changeSearchType } = this.props;
+    const searchType = search.type;
     return (
       <div className="ui middle aligned center aligned grid">
         <div className="column">
@@ -15,19 +21,15 @@ export default class Home extends React.Component {
                 <input type="text" placeholder="Matter" />
               </div>
               <div className="twelve wide field">
-                <SearchBox />
+                <SearchBox changeSearchType={changeSearchType} />
               </div>
             </div>
             <div className="fields">
               <div className="four wide field">
               </div>
               <div className="twelve wide field">
-                <span className="ui mini images">
-                  <img src="images/company.png" className="ui image" />
-                  <img src="images/person.png" className="ui image" />
-                  <img src="images/address.png" className="ui image" />
-                </span>
-                <button type="submit" className="ui teal button" tabindex="0">REVEAL</button>
+                <SearchTypeChooser searchType={search.type} changeSearchType={changeSearchType} />
+                <button type="submit" className="ui teal button" tabIndex="0">REVEAL</button>
               </div>
             </div>
           </form>
@@ -36,3 +38,20 @@ export default class Home extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    search: state.search
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeSearchType: searchType => dispatch(changeSearchType(searchType))
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);

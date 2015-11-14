@@ -2,6 +2,9 @@
   "name": "InfoSearch",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "nodemon ./server.js"
+  },
   "devDependencies": {
     "babel-core": "^5.8.25",
     "babel-eslint": "^4.0.5",
@@ -20,6 +23,7 @@
   },
   "dependencies": {
     "better-console": "^0.2.4",
+    "classnames": "^2.2.0",
     "del": "^2.0.2",
     "extend": "^3.0.0",
     "gulp": "^3.9.0",

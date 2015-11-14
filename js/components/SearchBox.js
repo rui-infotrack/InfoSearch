@@ -2,15 +2,21 @@ import React from 'react';
 
 export default class SearchBox extends React.Component {
   componentDidMount() {
+    const { changeSearchType } = this.props;
+
     $(this.refs.search)
       .search({
         apiSettings: {
-          url: 'api/search?term={query}'
+          url: 'api/search?term={query}',
+          onResponse: function(response) {
+            const { type } = response;
+            changeSearchType(type);
+          }
         },
         cache: false,
         minCharacters: 2,
         maxResults: 10,
-        searchDelay: 250
+        searchDelay: 350
       });
   }
 
